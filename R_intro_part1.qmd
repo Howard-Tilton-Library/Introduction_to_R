@@ -550,7 +550,9 @@ If you're working through this tutorial, you probably have data of your own that
 # When files are hosted directly on a website, you can import it by quoting the file's url inside the read.csv function.
 bird_csv <- read.csv("https://libguides.tulane.edu/ld.php?content_id=70580527")
 
-# Next
+# You can use this same function to import local data from your machine by entering the file path. You can try this out by downloading the data file from the link above or from this project's GitHub repository.
+
+# Here's how it works:
 
 # Windows users must replace the \ in their pathways with / or \\ in order for R to recognize it.
 bird_csv <- read.csv("C:/Users/Jane Doe/Desktop/intro1_bird_data.csv")
@@ -558,7 +560,7 @@ bird_csv <- read.csv("C:/Users/Jane Doe/Desktop/intro1_bird_data.csv")
 # For Mac Users
 bird_csv <- read.csv("/Users/Jane Doe/Desktop/intro1_bird_data.csv")
 
-# Now that you've read in the new data, give it a look over using what you learned earlier.
+# Now that you've read in the new data, look it over using what you learned earlier.
 ```
 
 ```{r}
@@ -571,9 +573,13 @@ bird_csv <- read.csv("https://libguides.tulane.edu/ld.php?content_id=70580527")
 ```
 
 ::: callout-note
-## <font size="5"> Note </font>
+## <font size="5"> Notes </font>
 
 <font size="4"> In *Intro to R Part II*, we'll learn about project management, which makes importing and exporting data much more efficient! </font>
+
+<font size="3"> The data I've provided for importing practice are fictional data I created, but they're based on actual average values from Tobias et al. (2022).</font> <br> <font size="2">
+Tobias, Joseph A., et al. "AVONET: morphological, ecological and geographical data for all birds." *Ecology Letters* 25.3 (2022): 581-597.
+</font>
 :::
 
 ## Combining

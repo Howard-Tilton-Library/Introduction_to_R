@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mike Ellis (he/him/his)   PhD Candidate   Ecology &amp; Evolutionary Biology   Tulane University   mellis5@tulane.edu">
-<meta name="dcterms.date" content="2023-02-15">
+<meta name="dcterms.date" content="2023-03-02">
 
 <title>Intro to Coding in R, Part I: The Fundamentals</title>
 <style>
@@ -2679,7 +2679,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 15, 2023</p>
+      <p class="date">March 2, 2023</p>
     </div>
   </div>
   
@@ -3382,15 +3382,17 @@ vertical-align: -.125em;
 <span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co"># When files are hosted directly on a website, you can import it by quoting the file&#39;s url inside the read.csv function.</span></span>
 <span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>bird_csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://libguides.tulane.edu/ld.php?content_id=70580527&quot;</span>)</span>
 <span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Next</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co"># You can use this same function to import local data from your machine by entering the file path. You can try this out by downloading the data file from the link above or from this project&#39;s GitHub repository.</span></span>
 <span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows users must replace the \ in their pathways with / or \\ in order for R to recognize it.</span></span>
-<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>bird_csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/Jane Doe/Desktop/intro1_bird_data.csv&quot;</span>)</span>
-<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="co"># For Mac Users</span></span>
-<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>bird_csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;/Users/Jane Doe/Desktop/intro1_bird_data.csv&quot;</span>)</span>
-<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Now that you&#39;ve read in the new data, give it a look over using what you learned earlier.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Here&#39;s how it works:</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows users must replace the \ in their pathways with / or \\ in order for R to recognize it.</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>bird_csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/Jane Doe/Desktop/intro1_bird_data.csv&quot;</span>)</span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="co"># For Mac Users</span></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>bird_csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;/Users/Jane Doe/Desktop/intro1_bird_data.csv&quot;</span>)</span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Now that you&#39;ve read in the new data, look it over using what you learned earlier.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 
@@ -3401,11 +3403,12 @@ vertical-align: -.125em;
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-<font size="5"> Note </font>
+<font size="5"> Notes </font>
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p><font size="4"> In <em>Intro to R Part II</em>, we’ll learn about project management, which makes importing and exporting data much more efficient! </font></p>
+<p><font size="3"> The data I’ve provided for importing practice are fictional data I created, but they’re based on actual average values from Tobias et al. (2022).</font> <br> <font size="2"> Tobias, Joseph A., et al. “AVONET: morphological, ecological and geographical data for all birds.” <em>Ecology Letters</em> 25.3 (2022): 581-597. </font></p>
 </div>
 </div>
 </section>
