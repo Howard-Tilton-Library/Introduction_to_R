@@ -550,14 +550,14 @@ If you're working through this tutorial, you probably have data of your own that
 # When files are hosted directly on a website, you can import it by quoting the file's url inside the read.csv function.
 bird_csv <- read.csv("https://libguides.tulane.edu/ld.php?content_id=70580527")
 
-# You can use this same function to import local data from your machine by entering the file path. You can try this out by downloading the data file from the link above or from this project's GitHub repository.
+# You can use this same function to import local data from your machine by feeding the file path into the function. You can try this out by downloading the data file from the link above or from the "Data_In" folder in this project's GitHub repository (https://github.com/mellisbirds/Intro_to_R.git).
 
 # Here's how it works:
 
 # Windows users must replace the \ in their pathways with / or \\ in order for R to recognize it.
 bird_csv <- read.csv("C:/Users/Jane Doe/Desktop/intro1_bird_data.csv")
 
-# For Mac Users
+# For Mac Users:
 bird_csv <- read.csv("/Users/Jane Doe/Desktop/intro1_bird_data.csv")
 
 # Now that you've read in the new data, look it over using what you learned earlier.
