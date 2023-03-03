@@ -943,7 +943,7 @@ head(bird_data, 4)
 
 ## `[`
 
-In R, square brackets `[` are an operator called "Extract" and can be used to extract and replace values in an object. Often, `[` references rows, columns, or individual cells in a data frame. Using similar ideas as the `$` above, we can use `[` to target specific parts of our data for editing. Another common use of `[` is to extract data from if it meets specified criteria.
+In R, square brackets `[` are an operator called "Extract" and can be used to extract and replace values in an object. Often, `[` references rows, columns, or individual cells in a data frame. Using similar ideas as the `$` above, we can use `[` to target specific parts of our data for editing. Another common use of `[` is to extract data from an object if it meets specified criteria.
 
 There are a few ways to use `[` at the basic level with data frames. In all cases, we tack our brackets onto the data frame or object we'd like to extract from and insert our query.
 
