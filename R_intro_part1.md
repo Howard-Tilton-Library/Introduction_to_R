@@ -1,7 +1,7 @@
 ---
 title: "Intro to Coding in R, Part I: The Fundamentals"
 author: "Mike Ellis (he/him/his) <br> PhD Candidate <br> Ecology & Evolutionary Biology <br> Tulane University <br> mellis5@tulane.edu"
-date: "`r format(Sys.time(), '%d %B %Y')`"
+date: "03 March 2023"
 
 format: 
   html:
@@ -28,6 +28,8 @@ execute:
   echo: true
   keep-md: true
 ---
+
+
 
 <br>
 
@@ -97,15 +99,40 @@ You can run basic and complex calculations, or even more complicated code, in th
 <font size="4"> Run some basic calculations by typing or copying them into the Console and hitting the "Enter" or "Return" key. </font>
 :::
 
-```{r}
-#| label: console-calculations
 
+::: {.cell}
+
+```{.r .cell-code}
 1 + 1
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+[1] 2
+```
+:::
+
+```{.r .cell-code}
 2 / 4
- 
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+[1] 0.5
+```
+:::
+
+```{.r .cell-code}
 3 * (5 - 3)^2
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+[1] 12
+```
+:::
+:::
+
 
 # **Your First R Script**
 
@@ -146,13 +173,30 @@ There are a few ways to run code contained in a script:
 <font size="4"> Run some basic calculations entered into your script. </font>
 :::
 
-```{r}
-#| label: how-to-run-script
 
+::: {.cell}
+
+```{.r .cell-code}
 2 * 3 * 4
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+[1] 24
+```
+:::
+
+```{.r .cell-code}
 1 / 7
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+[1] 0.1428571
+```
+:::
+:::
+
 
 ## The Almighty `#`Hashtag
 
@@ -186,10 +230,10 @@ Assigning data to objects allows you to "call", or access, the data whenever you
 <font size="4"> 1. Enter the code below in your new script to save some objects, use them in operations, and see the results. <br> 2. Employ good organizational practices using `#`. </font>
 :::
 
-```{r}
-#| label: objects-commenting
-#| eval: false
 
+::: {.cell}
+
+```{.r .cell-code}
 # Creating Objects ----
 
 # Objects can be single values. In the line below, we assign a value to an object with a descriptive name.
@@ -212,15 +256,22 @@ ten_twenty + 10
 # This code is "commented out" and won't run:
 # ten * 2 - twenty
 ```
+:::
+
 
 Our only output should be the following for our two objects and the two sums we calculated using those objects:
 
-```{r}
-#| label: objects-commenting2
-#| ref.label: objects-commenting
-#| echo: false
-#| collapse: true
+
+::: {.cell}
+
 ```
+## [1] 10
+## [1] 20
+## [1] 30
+## [1] 40
+```
+:::
+
 
 ## Overwriting Objects
 
@@ -232,37 +283,86 @@ When working in most word processing programs, if you try to save a document wit
 <font size="4"> Experiment with reassigning objects. </font>
 :::
 
-```{r}
-#| label: overwriting
 
+::: {.cell}
+
+```{.r .cell-code}
 # Here "math" = 15
 math <- 3*5
 math
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+[1] 15
+```
+:::
+
+```{.r .cell-code}
 # But as soon as we run this code, every time we call "math" from now on, we'll get 25 instead.
 math <- ten + math
 math
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+[1] 25
+```
+:::
+
+```{.r .cell-code}
 math - ten_twenty
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+[1] -5
+```
+:::
+:::
+
 
 ## Careful!
 
 R is case-sensitive and sensitive to typos, too! In fact, typos are the most common source of errors in R. Any time you've got a problem, first **check for typos!**
 
-```{r}
-#| label: careful
-#| error: true
 
+::: {.cell}
+
+```{.r .cell-code}
 # Calling this object works as intended.
 ten
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+[1] 10
+```
+:::
+
+```{.r .cell-code}
 # This won't work because of incorrect capitalization.
 Ten
+```
 
+::: {.cell-output .cell-output-error}
+```
+Error in eval(expr, envir, enclos): object 'Ten' not found
+```
+:::
+
+```{.r .cell-code}
 # This typo will yield an error as well.
 twetny
 ```
+
+::: {.cell-output .cell-output-error}
+```
+Error in eval(expr, envir, enclos): object 'twetny' not found
+```
+:::
+:::
+
 
 ## Strings/Characters
 
@@ -274,16 +374,34 @@ Data come in many formats, or **classes**. The objects we saved above were all w
 <font size="4"> Make and manipulate some string objects. </font>
 :::
 
-```{r}
-#| label: strings
 
+::: {.cell}
+
+```{.r .cell-code}
 # Put text in quotations to create a string.
 tu <- "Tulane University"
 loc <- "New Orleans, LA"
 
 tu
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+[1] "Tulane University"
+```
+:::
+
+```{.r .cell-code}
 loc
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+[1] "New Orleans, LA"
+```
+:::
+:::
+
 
 ::: callout-note
 ## <font size="5"> Note </font>
@@ -291,10 +409,10 @@ loc
 <font size="4"> As you might expect, character and numeric classes are incompatible! And strings can't be used mathematically. What happens if you try to run the code below in your script? </font>
 :::
 
-```{r}
-#| label: bad-strings
-#| eval: false
 
+::: {.cell}
+
+```{.r .cell-code}
 # You can't do math with text
 tu + 10
 
@@ -303,6 +421,8 @@ tu + loc
 tu loc
 tu, loc
 ```
+:::
+
 
 # **Vectors, Functions, Help, Cleaning**
 
@@ -320,27 +440,60 @@ The function for creating a vector is `c()`. `c` stands for "Combine Values into
 <font size="4"> Create some vectors of your own. </font>
 :::
 
-```{r}
-#| label: vectors
 
+::: {.cell}
+
+```{.r .cell-code}
 # Vectors ----
 
 # Vectors combine values separated by commas. Here we're telling the c() function to combine three character values. We are not feeding the function any additional arguments.
 birds <- c("Kestrel", "Crow", "Robin")
 birds
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+[1] "Kestrel" "Crow"    "Robin"  
+```
+:::
+
+```{.r .cell-code}
 # This works for numbers as well as characters.
 a <- c(1, 2, 3, 4)
 a
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+[1] 1 2 3 4
+```
+:::
+
+```{.r .cell-code}
 # But if you combine the two, the numbers will be converted to characters.
 # NOTE: We haven't assigned this vector to an object! As a result, it won't appear in your Environment after you run it.
 c("a", 1, "b", 2, "c", 3)
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+[1] "a" "1" "b" "2" "c" "3"
+```
+:::
+
+```{.r .cell-code}
 # We can use the colon symbol to create numeric runs from A to B.
 a <- c(1:4)
 a
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+[1] 1 2 3 4
+```
+:::
+
+```{.r .cell-code}
 # Here's a longer vector.
 ten_to_sixty <- c(10:60)
 
@@ -348,6 +501,16 @@ ten_to_sixty <- c(10:60)
 # You can experiment with this by dragging your Console edges left or right and rerunning the code. 
 ten_to_sixty
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+ [1] 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34
+[26] 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+[51] 60
+```
+:::
+:::
+
 
 ## Function examples
 
@@ -359,10 +522,10 @@ R is full of helpful functions, and since it's entirely open-source, people are 
 <font size="4"> Test out some common functions below. What do they do? </font>
 :::
 
-```{r}
-#| label: functions
-#| eval: false
 
+::: {.cell}
+
+```{.r .cell-code}
 # Function Practice ----
 
 # Here are a few functions that can take additional arguments, but we haven't supplied any. Instead, we're using the default methods and supplying only the input data.
@@ -395,13 +558,12 @@ x
 y
 z
 ```
+:::
 
-```{r}
-#| label: functions2
-#| ref.label: functions
-#| echo: false
-#| output: false
-```
+::: {.cell}
+
+:::
+
 
 ## Help in R
 
@@ -413,10 +575,10 @@ If you're ever unsure of how a function works, what arguments it takes, or even 
 <font size="4"> Query R for help by entering these lines directly into your *console*, not your script, one at a time. </font>
 :::
 
-```{r}
-#| label: help
-#| eval: false
 
+::: {.cell}
+
+```{.r .cell-code}
 # Entering a ? before a function name will pull up the help page for that function
 ?c
 ?paste
@@ -430,6 +592,8 @@ If you're ever unsure of how a function works, what arguments it takes, or even 
 # Wrap phrases in quotes to search for them.
 ??"linear regression"
 ```
+:::
+
 
 ::: callout-note
 ## <font size="5"> Note </font>
@@ -451,12 +615,14 @@ It's always a good idea to keep a tidy work space. R has a function called `rm()
 <font size="4"> Let's get rid of extra objects we don't need anymore. </font>
 :::
 
-```{r}
-#| label: removing
-#| eval: false
 
+::: {.cell}
+
+```{.r .cell-code}
 rm(a, birds, loc, math, ten, ten_to_sixty, ten_twenty, tu, twenty, x, y, z)
 ```
+:::
+
 
 # **Data Frames**
 
@@ -472,10 +638,10 @@ Like most tabular information, data frames are organized by column. In R, they'r
 <font size="4"> 1. Start a new collapsible section heading. <br> 2. Next, build your own data frame by defining your columns. <br> 3. Combine multiple functions to get one end result </font>
 :::
 
-```{r}
-#| label: data-frames
-#| code-overflow: scroll
 
+::: {.cell}
+
+```{.r .cell-code .code-overflow-scroll}
 # Working with Data Frames ----
 
 # Create data frames using data.frame()
@@ -487,6 +653,8 @@ bird_data <- data.frame(species = rep(am_birds, each = 12),
                         family = rep(c("Falconidae", "Corvidae", "Turdidae"),
                                      each = 12))
 ```
+:::
+
 
 Congratulations! In addition to making your first data frame, you just combined [*three*]{.underline} functions for the first time by nesting `c()` inside `rep()` inside `data.frame()`! Take some time to inspect each component of this code to make sure you're clear on what the three functions did. You may find it helpful to start with the innermost piece (`c()`) and work your way out.
 
@@ -502,21 +670,68 @@ Let's check out our results. There are a few ways to view your them:
 
 1.  Type the name of your data frame into the Console and hit Enter.
 
-    ```{r}
-    #| label: view-df1
 
+    ::: {.cell}
+    
+    ```{.r .cell-code}
     # NOTE: This gets quite cumbersome for large data sets, especially ones with lots of columns since the Console can't scroll left and right.
     bird_data
     ```
+    
+    ::: {.cell-output .cell-output-stdout}
+    ```
+                species     family
+    1  American Kestrel Falconidae
+    2  American Kestrel Falconidae
+    3  American Kestrel Falconidae
+    4  American Kestrel Falconidae
+    5  American Kestrel Falconidae
+    6  American Kestrel Falconidae
+    7  American Kestrel Falconidae
+    8  American Kestrel Falconidae
+    9  American Kestrel Falconidae
+    10 American Kestrel Falconidae
+    11 American Kestrel Falconidae
+    12 American Kestrel Falconidae
+    13    American Crow   Corvidae
+    14    American Crow   Corvidae
+    15    American Crow   Corvidae
+    16    American Crow   Corvidae
+    17    American Crow   Corvidae
+    18    American Crow   Corvidae
+    19    American Crow   Corvidae
+    20    American Crow   Corvidae
+    21    American Crow   Corvidae
+    22    American Crow   Corvidae
+    23    American Crow   Corvidae
+    24    American Crow   Corvidae
+    25   American Robin   Turdidae
+    26   American Robin   Turdidae
+    27   American Robin   Turdidae
+    28   American Robin   Turdidae
+    29   American Robin   Turdidae
+    30   American Robin   Turdidae
+    31   American Robin   Turdidae
+    32   American Robin   Turdidae
+    33   American Robin   Turdidae
+    34   American Robin   Turdidae
+    35   American Robin   Turdidae
+    36   American Robin   Turdidae
+    ```
+    :::
+    :::
+
 
 2.  Use the `View()` function. [*WARNING*]{style="color: red;"}: this function *must* be capitalized! BUT, it's a lot more manageable than trying to inspect big data directly in the Console. Usually you don't want to put `View()` in your script, however, so type or copy it into your Console instead. You should have the same results open up in a new tab beside your script in the Source panel.
 
-    ```{r}
-    #| label: view-df2
-    #| eval: false
 
+    ::: {.cell}
+    
+    ```{.r .cell-code}
     View(bird_data)
     ```
+    :::
+
 
     ![Viewing your data frame should open a new tab in your Source panel that looks like this.](./Data_In/Figures/view_df1.png){width="450"}
 
@@ -540,10 +755,10 @@ If you're working through this tutorial, you probably have data of your own that
 <font size="4"> 1. Import some bird measurement data to accompany this tutorial directly from the web. <br> 2. Download the file, copy the complete file path (location on your computer) including the file name and the .csv extension to your clipboard. <br> 3. **Read in** the data to R using `read.csv()` with the appropriate set up for your machine. <br> 4. Examine your new data using one of the methods above. </font>
 :::
 
-```{r}
-#| label: import-data
-#| eval: false
 
+::: {.cell}
+
+```{.r .cell-code}
 # Data can be imported into R from various sources. Here you'll learn how to do it directly from the web and from your own machine.
 
 # In both cases, we'll use read.csv() because that's the filetype of the data we're importing.
@@ -563,15 +778,12 @@ bird_csv <- read.csv("/Users/Jane Doe/Desktop/intro1_bird_data.csv")
 
 # Now that you've read in the new data, look it over using what you learned earlier.
 ```
+:::
 
-```{r}
-#| label: my-import
-#| echo: false
-#| output: false
+::: {.cell}
 
-bird_csv <- read.csv("https://libguides.tulane.edu/ld.php?content_id=70580527")
+:::
 
-```
 
 ::: callout-note
 ## <font size="5"> Notes </font>
@@ -597,9 +809,10 @@ There are several different ways to combine data frames in r, but the most strai
 <font size="4"> Combine the data you created with bird names and families with the measurement data you imported. </font>
 :::
 
-```{r}
-#| label: bind-data
 
+::: {.cell}
+
+```{.r .cell-code}
 # cbind() takes multiple data or object inputs, but they must have the same number of rows.
 
 # Do our data have the same number of rows? What about columns?
@@ -609,6 +822,8 @@ bird_data <- cbind(bird_data, bird_csv)
 
 # NOTE: You just overwrote the bird_data object! If you accidentally run the code above again, you will bind bird_csv to the new object, which will result in duplicate columns! If necessary, go back a few steps to recreate the original bird_data object.
 ```
+:::
+
 
 # **Examine Data**
 
@@ -620,10 +835,10 @@ It's always a good idea to inspect your data. Here are some common ways of doing
 <font size="4"> Give data frame inspection a whirl. Pay special attention to the last bit of output from `str()` </font>
 :::
 
-```{r}
-#| label: examine-data
-#| eval: false
 
+::: {.cell}
+
+```{.r .cell-code}
 # Data Inspection ----
 
 # In addition to View(), you can also use functions to examine pieces of your data and its structure.
@@ -636,15 +851,25 @@ tail(bird_data, n = 3)
 # This one also shows object and data classes!
 str(bird_data) # str = structure
 ```
+:::
+
 
 Does anything unusual from the `str()` output catch your eye?
 
-```{r}
-#| label: just-str
-#| echo: false
 
-str(bird_data)
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
 ```
+'data.frame':	36 obs. of  5 variables:
+ $ species       : chr  "American Kestrel" "American Kestrel" "American Kestrel" "American Kestrel" ...
+ $ family        : chr  "Falconidae" "Falconidae" "Falconidae" "Falconidae" ...
+ $ id            : chr  "kestrel1" "kestrel2" "kestrel3" "kestrel4" ...
+ $ wing_length_mm: num  175 179 201 183 NA ...
+ $ mass_g        : num  109 NA 130 113 112 ...
+```
+:::
+:::
+
 
 # **Common Data Manipulators**
 
@@ -660,27 +885,38 @@ But let's look at `$` before we get any further with `NAs`. In R, we can use **`
 <font size="4"> 1. Use the `$` operator to access and edit individual variables in an object, in this case, columns in a data frame. <br> 2. Use `$` to create and remove columns. </font>
 :::
 
-```{r}
-#| label: dollars1
-#| collapse: true
 
+::: {.cell}
+
+```{.r .cell-code}
 # $ Operator ----
 
 # You may have also noticed some differences in significant figures in our numeric variables while inspecting the data above. 
 head(bird_data$wing_length_mm, 5)
+## [1] 175.3 179.2 200.7 182.8    NA
 
 head(bird_data$mass_g, 5)
+## [1] 108.732      NA 129.515 112.586 112.163
 ```
+:::
 
-```{r}
-#| label: dollars2
+::: {.cell}
 
+```{.r .cell-code}
 # We can overwrite columns with edited versions of themselves using $ and <- . Let's fix the sig figs on mass_g by setting the mass_g column equal to a rounded version of itself.
 bird_data$mass_g <- round(bird_data$mass_g, digits = 1)
 
 # Check to make sure mass_g is now rounded to 1 decimal place.
 head(bird_data$mass_g)
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+[1] 108.7    NA 129.5 112.6 112.2 131.6
+```
+:::
+
+```{.r .cell-code}
 # You can also use $ to make new columns altogether or eliminate existing ones. Let's try both.
 
 # First, we can determine the relationship between mass and wing length by dividing the former by the latter.
@@ -692,6 +928,18 @@ bird_data$id <- NULL
 # Remember to check your work! $id should have disappeared. 
 head(bird_data, 4)
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+           species     family wing_length_mm mass_g mass_to_wing
+1 American Kestrel Falconidae          175.3  108.7         0.62
+2 American Kestrel Falconidae          179.2     NA           NA
+3 American Kestrel Falconidae          200.7  129.5         0.65
+4 American Kestrel Falconidae          182.8  112.6         0.62
+```
+:::
+:::
+
 
 ## `[`
 
@@ -725,25 +973,56 @@ There are a few ways to use `[` at the basic level with data frames. In all case
 <font size="4"> 1. Use the `[` operator to search and edit `bird_data`. <br> 2. Use `[` to find values meeting search criteria. </font>
 :::
 
-```{r}
-#| label: extract
 
+::: {.cell}
+
+```{.r .cell-code}
 # [ Extract ----
 
 # You can extract and edit values in a specified row and column with [.
 # In our most recent output from head(), we saw an NA value in the 2nd row of the mass_g column, which currently is the 4th column. Go back and take a look. Then,...
 # Let's check the contents of that cell. And remember, the query order is [row, column]
 bird_data[2, 4]
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+[1] NA
+```
+:::
+
+```{.r .cell-code}
 # Yep, that's our NA.
 # Suppose you know the missing value that's supposed to be in that cell and want to fill it in. All we have to do is assign the value to that cell and check our work.
 bird_data[2, 4] <- 110.2
 head(bird_data, 3)
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+           species     family wing_length_mm mass_g mass_to_wing
+1 American Kestrel Falconidae          175.3  108.7         0.62
+2 American Kestrel Falconidae          179.2  110.2           NA
+3 American Kestrel Falconidae          200.7  129.5         0.65
+```
+:::
+
+```{.r .cell-code}
 # A less risky maneuver would be to specify the column name.
 bird_data$mass_g[2] <- 111.2
 head(bird_data, 3)
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+           species     family wing_length_mm mass_g mass_to_wing
+1 American Kestrel Falconidae          175.3  108.7         0.62
+2 American Kestrel Falconidae          179.2  111.2           NA
+3 American Kestrel Falconidae          200.7  129.5         0.65
+```
+:::
+
+```{.r .cell-code}
 # We could now re-run the entire mass to wing ratio code from above to update it, or manually update that one cell with the correct value.
 # We know it should be in the same row as the cell we just fixed and draw from the mass and wing values in that row. So,...
 bird_data$mass_to_wing[2] <- round(bird_data$mass_g[2] /
@@ -751,13 +1030,21 @@ bird_data$mass_to_wing[2] <- round(bird_data$mass_g[2] /
 
 # Check to make sure it worked.
 head(bird_data, 3)
-
 ```
 
-```{r}
-#| label: extract2
-#| eval: false
+::: {.cell-output .cell-output-stdout}
+```
+           species     family wing_length_mm mass_g mass_to_wing
+1 American Kestrel Falconidae          175.3  108.7         0.62
+2 American Kestrel Falconidae          179.2  111.2         0.62
+3 American Kestrel Falconidae          200.7  129.5         0.65
+```
+:::
+:::
 
+::: {.cell}
+
+```{.r .cell-code}
 # What happens if you don't provide [ with both a row and column?
 bird_data[, 4]
 bird_data[2, ]
@@ -772,17 +1059,56 @@ bird_data <- bird_data[-13, ]
 # Take a look.
 View(bird_data)
 ```
+:::
 
-```{r}
-#| label: extract3
+::: {.cell}
 
+```{.r .cell-code}
 # And we can extract snippets of our dataframe with : and c().
 # Extract rows 20:25, all columns
 bird_data[25:35, ]
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+          species   family wing_length_mm mass_g mass_to_wing
+25 American Robin Turdidae          120.8   72.1         0.60
+26 American Robin Turdidae          110.1     NA           NA
+27 American Robin Turdidae          135.4   84.1         0.62
+28 American Robin Turdidae          128.5   79.7         0.62
+29 American Robin Turdidae             NA   70.2           NA
+30 American Robin Turdidae          139.5   87.9         0.63
+31 American Robin Turdidae          131.3   83.9         0.64
+32 American Robin Turdidae          124.0   75.2         0.61
+33 American Robin Turdidae          136.0   80.6         0.59
+34 American Robin Turdidae          135.8   85.5         0.63
+35 American Robin Turdidae          135.2   82.5         0.61
+```
+:::
+
+```{.r .cell-code}
 # Extract rows 20:25 for columns 1, 3, and 5
 bird_data[25:35, c(1, 3, 5)]
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+          species wing_length_mm mass_to_wing
+25 American Robin          120.8         0.60
+26 American Robin          110.1           NA
+27 American Robin          135.4         0.62
+28 American Robin          128.5         0.62
+29 American Robin             NA           NA
+30 American Robin          139.5         0.63
+31 American Robin          131.3         0.64
+32 American Robin          124.0         0.61
+33 American Robin          136.0         0.59
+34 American Robin          135.8         0.63
+35 American Robin          135.2         0.61
+```
+:::
+:::
+
 
 Great work! Now let's query our data following the `object[object operator condition]` pattern. Here, operators are symbols used to specify logical conditions that you're probably familiar with, but with a few twists:
 
@@ -804,17 +1130,38 @@ Great work! Now let's query our data following the `object[object operator condi
 
 -   `%in%` Object1 is in object2
 
-```{r}
-#| label: extract4
 
+::: {.cell}
+
+```{.r .cell-code}
 # We can ask R to tell us which items in an object meet a certain condition with the pattern "object operator condition."
 # Here we have an object (wing length column), an operator (>) and a condtion (200 mm).
 bird_data$wing_length_mm > 150
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+ [1]  TRUE  TRUE  TRUE  TRUE    NA  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[13]  TRUE  TRUE  TRUE  TRUE    NA  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[25] FALSE FALSE FALSE FALSE    NA FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+```
+:::
+
+```{.r .cell-code}
 # Notice how R only told us whether or not the values met that condition? 
 # "object[object operator condition] will return all TRUE values.
 bird_data$wing_length_mm[bird_data$wing_length_mm > 150]
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+ [1] 175.3 179.2 200.7 182.8    NA 202.6 187.5 166.8 173.8 176.7 196.7 186.3
+[13] 802.6 295.7 279.7 335.9    NA 245.8 309.8 281.7 267.4 287.8 268.4 275.5
+[25]    NA
+```
+:::
+
+```{.r .cell-code}
 # As you can see, this starts to get pretty wordy. Sometimes it can help to create a smaller object, especially when you begin adding conditions!
 # Reduce:
 test <- bird_data$wing_length_mm
@@ -822,9 +1169,28 @@ test <- bird_data$wing_length_mm
 # Now use that reduced object to meet multiple conditions.
 # This returns values between 150 and 200
 test[test > 150 & test < 200]
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+ [1] 175.3 179.2 182.8    NA 187.5 166.8 173.8 176.7 196.7 186.3    NA    NA
+```
+:::
+
+```{.r .cell-code}
 # This returns returns everything except values between 150 and 200
 test[test <= 150 | test >= 200]
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+ [1] 200.7    NA 202.6 802.6 295.7 279.7 335.9    NA 245.8 309.8 281.7 267.4
+[13] 287.8 268.4 275.5 120.8 110.1 135.4 128.5    NA 139.5 131.3 124.0 136.0
+[25] 135.8 135.2 133.9
+```
+:::
+:::
+
 
 ## `subset()`
 
@@ -846,9 +1212,10 @@ Most of these limitations can be addressed one way or another with clever fixes,
 <font size="4"> 1. Whittle down your entire data frame to meet specific criteria using `subset()`. 2. Take `%in%` for a test drive. </font>
 :::
 
-```{r}
-#| label: subset
 
+::: {.cell}
+
+```{.r .cell-code}
 # Subset ----
 
 # At its most basic, subset is pretty straightforward.
@@ -856,18 +1223,71 @@ Most of these limitations can be addressed one way or another with clever fixes,
 # Notice there are no NAs in the column like there were with [. 
 # Also, all columns are returned, so you can see which species fit the bill!
 subset(bird_data, mass_g > 450)
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+         species   family wing_length_mm mass_g mass_to_wing
+14 American Crow Corvidae          295.7  455.7         1.54
+15 American Crow Corvidae          279.7  460.0         1.64
+16 American Crow Corvidae          335.9  508.5         1.51
+17 American Crow Corvidae             NA  498.2           NA
+19 American Crow Corvidae          309.8  487.4         1.57
+22 American Crow Corvidae          287.8  452.6         1.57
+```
+:::
+
+```{.r .cell-code}
 # The most commonly used subset() argument "selects" columns to return rather than the entire data frame.
 # This returns the same rows as above but only for two desired columns.
 subset(bird_data, mass_g > 450, select = c(family, wing_length_mm))
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+     family wing_length_mm
+14 Corvidae          295.7
+15 Corvidae          279.7
+16 Corvidae          335.9
+17 Corvidae             NA
+19 Corvidae          309.8
+22 Corvidae          287.8
+```
+:::
+
+```{.r .cell-code}
 # Here's another example where family MUST be "Corvidae" and individuals must have mass_to_wing less than 1.5 g/mm.
 subset(bird_data, family == "Corvidae" & mass_to_wing < 1.5)
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+         species   family wing_length_mm mass_g mass_to_wing
+18 American Crow Corvidae          245.8  357.5         1.45
+```
+:::
+
+```{.r .cell-code}
 # Lastly, here's an introduction to %in%.
 # This operator asks subset to return all rows where the data within the desired column (species) matches at least one item in the provided object (in this case a vector containing two strings)...and in this case, those rows must have a mass_to_wing greater than or = to 0.63 g/mm as well!
 subset(bird_data, species %in% c("American Kestrel", "American Robin") & mass_to_wing >= 0.63)
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+            species     family wing_length_mm mass_g mass_to_wing
+3  American Kestrel Falconidae          200.7  129.5         0.65
+6  American Kestrel Falconidae          202.6  131.6         0.65
+8  American Kestrel Falconidae          166.8  106.4         0.64
+9  American Kestrel Falconidae          173.8  109.6         0.63
+11 American Kestrel Falconidae          196.7  125.4         0.64
+30   American Robin   Turdidae          139.5   87.9         0.63
+31   American Robin   Turdidae          131.3   83.9         0.64
+34   American Robin   Turdidae          135.8   85.5         0.63
+```
+:::
+:::
+
 
 ::: callout-warning
 ## <font size="5"> Careful! </font>
@@ -889,10 +1309,10 @@ So far, we've learned two ways of handling missing data with `[`: replacing indi
 
 To illustrate the issues raised by missing values, let's try to run some summary statistics on one species in our data frame: the American Robin.
 
-```{r}
-#| label: nas
-#| collapse: true
 
+::: {.cell}
+
+```{.r .cell-code}
 # Missing data ----
 
 # First, we'll have to create an object containing just robins by subsetting the larger bird_data data frame
@@ -900,66 +1320,108 @@ robins <- subset(bird_data, species == "American Robin")
 
 # Next, let's try running some functions we learned earlier.
 mean(robins$mass_g)
+## [1] NA
 
 median(robins$wing_length_mm)
+## [1] NA
 ```
+:::
 
-```{r}
-#| label: nas2
-#| collapse: true
+::: {.cell}
 
+```{.r .cell-code}
 # Uh oh. Those NAs gummed up the works. There's a quick and easy fix, though!
 # Add the na.rm (NA remove) argument.
 mean(robins$mass_g, na.rm = TRUE)
+## [1] 80.3
 
 median(robins$wing_length_mm, na.rm = TRUE)
+## [1] 133.9
 
 # NOTE: This approach saves more data than eliminating entire rows to deal with NAs!
 ```
+:::
+
 
 ## 2. `is.na()`
 
 We can also identify rows with `NAs`, or the lack thereof, in *individual columns* using the `is.na()` function.
 
-```{r}
-#| label: nas3
 
+::: {.cell}
+
+```{.r .cell-code}
 # This code provides all the rows where the specified column contains an NA
 subset(bird_data, is.na(mass_g))
 ```
 
-```{r}
-#| label: nas3-5
-#| eval: false
+::: {.cell-output .cell-output-stdout}
+```
+          species   family wing_length_mm mass_g mass_to_wing
+13  American Crow Corvidae          802.6     NA           NA
+26 American Robin Turdidae          110.1     NA           NA
+```
+:::
+:::
 
+::: {.cell}
+
+```{.r .cell-code}
 # Conversely, this removes all rows with an NA in the specified column.
 # Just like != means "is not equal to," !is.na() means "is not NA."
 # Give it a whirl. You shouldn't see any rows with NAs.
 subset(bird_data, !is.na(mass_g))
 ```
+:::
+
 
 ## 3. `complete.cases()`
 
 What if we want to check for `NAs`in *all* rows across *all* columns *at the same time*? There's actually a very powerful function which can be combined with `[` for exactly that purpose!
 
-```{r}
-#| label: nas4
 
+::: {.cell}
+
+```{.r .cell-code}
 # complete.cases() checks each row to determine if there is an NA present in any column.
 # Every time a FALSE is returned, it's for a row with NAs.
 complete.cases(bird_data)
+```
 
+::: {.cell-output .cell-output-stdout}
+```
+ [1]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[13] FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[25]  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+```
+:::
+
+```{.r .cell-code}
 # We can combine that with [ to extract those rows.
 bird_data[!complete.cases(bird_data), ]
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+            species     family wing_length_mm mass_g mass_to_wing
+5  American Kestrel Falconidae             NA  112.2           NA
+13    American Crow   Corvidae          802.6     NA           NA
+17    American Crow   Corvidae             NA  498.2           NA
+26   American Robin   Turdidae          110.1     NA           NA
+29   American Robin   Turdidae             NA   70.2           NA
+```
+:::
+:::
+
 
 ## 4. `na.omit()`
 
 Let's pretend that, for some reason, we're not interested in any individuals with `NA` values anywhere. Perhaps we're only interested in the mass to wing ratio, so an `NA` in either of those columns makes that row useless to us. In that case, we can remove all rows with an NA in any column using the `na.omit()` function.
 
-```{r}
-#| label: nas5
 
+::: {.cell}
+
+```{.r .cell-code}
 # na.omit() removes all rows where an NA is present regardless of column.
 # Powerful, but it throws away a lot of data, e.g., you may want to include birds missing wing data in analyses on mass.
 # Let's create a new object without NAs.
@@ -972,8 +1434,16 @@ bird_data_clean <- na.omit(bird_data)
 # NOTE: The presence and absence of the ! is critical.
 # This should not return any results because all NAs should have been removed in the step above!
 bird_data_clean[!complete.cases(bird_data_clean), ]
-
 ```
+
+::: {.cell-output .cell-output-stdout}
+```
+[1] species        family         wing_length_mm mass_g         mass_to_wing  
+<0 rows> (or 0-length row.names)
+```
+:::
+:::
+
 
 # **Exporting Data**
 
@@ -987,10 +1457,10 @@ Our last bit of code is a quick and easy one to take your processed data out of 
 <font size="4"> Use `write.csv()` to export your data. </font>
 :::
 
-```{r}
-#| label: export
-#| eval: false
 
+::: {.cell}
+
+```{.r .cell-code}
 # write.csv() wants your data/object first, then a file name, and then you can feed it other arguments. Here we're specifying not to include row names since in this case they're just the number of each row. In some cases, you may choose to set your rownames to something more meaningful.
 # Remember, Windows users must replace the \ in their pathways with / or \\ in order for R to recognize it.
 write.csv(bird_data_clean, file = "C:/Users/Your Username/Desktop/bird_data_output.csv",
@@ -1005,6 +1475,8 @@ write.csv(bird_data_clean, file = "Users/Your Username/Desktop/bird_data_output.
 # write.csv(bird_data_clean, file = "C:/Users/Your Username/Desktop/bird_data_output.csv", 
 #           row.names = FALSE)
 ```
+:::
+
 
 ::: callout-note
 ## <font size="5"> Note </font>
