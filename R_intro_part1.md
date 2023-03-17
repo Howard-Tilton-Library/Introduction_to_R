@@ -1,7 +1,7 @@
 ---
 title: "Intro to Coding in R, Part I: The Fundamentals"
 author: "Mike Ellis (he/him/his) <br> PhD Candidate <br> Ecology & Evolutionary Biology <br> Tulane University <br> mellis5@tulane.edu"
-date: "03 March 2023"
+date: "17 March 2023"
 
 format: 
   html:
@@ -31,11 +31,13 @@ execute:
 
 
 
-<br>
+![](Data_In/Figures/TUL_Logos_narrow.png){fig-align="center"}
 
-Greetings! This tutorial was originally commissioned by Tulane University's Howard-Tilton Memorial Library. It is targeted towards faculty, post-docs, graduate students, and undergraduates new to R. Its goal is to provide the necessary foundation for processing and analyzing your own data. Please see the Table of Contents on the left side of this window for an overview. Additional information on project management, packages, "tidy R," and data visualizations will be provided in Part II.
+Greetings! This tutorial was commissioned by Tulane University's Howard-Tilton Memorial Library. It is targeted towards faculty, post-docs, graduate students, and undergraduates new to R. Its goal is to provide the necessary foundation for processing and analyzing your own data, from beginning to end. Please see the Table of Contents on the left side of this window for an overview. Additional information on project management, packages, "tidy" data, more complex iterative and conditional functions, summary statistics, and data visualizations will be provided in Part II.
 
 Happy coding!
+
+<br>
 
 # **Download R & RStudio**
 
