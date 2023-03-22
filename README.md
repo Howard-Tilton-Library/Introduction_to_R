@@ -1,4 +1,4 @@
-# Intro to R: Part I
+# Intro to R, Part I: The Fundamentals
 
 ![](Data_In/Figures/TUL_Logos_narrow.png)
 
