@@ -1,4 +1,4 @@
-# Intro_to_R
+# Intro to R: Part I
 
 ![](Data_In/Figures/TUL_Logos_narrow.png)
 
